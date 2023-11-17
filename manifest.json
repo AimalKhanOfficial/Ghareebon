@@ -4,8 +4,6 @@
     "description": "Ghareebon Prank Extension",
     "version": "1.0",
     "permissions": [
-        "tabs",
-        "activeTab",
         "offscreen"
     ],
     "background": {

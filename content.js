@@ -54,6 +54,45 @@ const ALL_WEBSITES = [
     "samsung",
     "apple",
     "amazon",
+    "walmart",
+    "flipkart",
+    "target",
+    "bestbuy",
+    "macys",
+    "homedepot",
+    "lowes",
+    "costco",
+    "kohls",
+    "nordstrom",
+    "etsy",
+    "wayfair",
+    "overstock",
+    "zappos",
+    "gap",
+    "sephora",
+    "ulta",
+    "newegg",
+    "bedbathandbeyond",
+    "gamestop",
+    "rei",
+    "dickssportinggoods",
+    "petco",
+    "sears",
+    "officedepot",
+    "barnesandnoble",
+    "crateandbarrel",
+    "williamssonoma",
+    "hsn",
+    "grubhub",
+    "doordash",
+    "ubereats",
+    "postmates",
+    "instacart",
+    "seamless",
+    "trycaviar",
+    "chownow",
+    "delivery",
+    "slicelife",
     "daraz",
     "olx",
     "yayvo",
@@ -120,10 +159,44 @@ const ALL_WEBSITES = [
     "shopngo",
     "zeesol",
     "vmart",
-    "shopone"
+    "shopone",
+    "jd",
+    "mercadoLibre",
+    "zalando",
+    "asos",
+    "gmarket",
+    "tmall",
+    "taobao",
+    "yandexMarket",
+    "bol",
+    "cdiscount",
+    "ozon",
+    "jumia",
+    "noon",
+    "takealot",
+    "myntra",
+    "daraz",
+    "carrefour",
+    "shopee",
+    "lazada",
+    "tokopedia",
+    "grab",
+    "foodpanda",
+    "deliveroo",
+    "justeat",
+    "swiggy",
+    "zomato",
+    "ubereats",
+    "glovo",
+    "doordash",
+    "grubhub",
+    "postmates",
+    "instacart",
+    "deliveryhero",
+    "eatigo"
 ];
 
-const REPEAT_TIME_IN_SECONDS = 6000;
+const REPEAT_TIME_IN_SECONDS = 10000;
 
 (() => {
     console.log('Content script is running!');
@@ -135,12 +208,6 @@ const REPEAT_TIME_IN_SECONDS = 6000;
             }
         }
         return false;
-    }
-
-    const playAudio = () => {
-        const audio = new Audio();
-        audio.src = chrome.runtime.getURL('audio/ghareebon.mp3');
-        audio.play();
     }
 
     const addImageAndAnimate = () => {

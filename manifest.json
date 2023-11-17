@@ -1,0 +1,24 @@
+{
+    "manifest_version": 3,
+    "name": "Ghareebon",
+    "description": "Ghareebon Prank Extension",
+    "version": "1.0",
+    "permissions": [
+        "tabs",
+        "activeTab"
+    ],
+    "content_scripts": [
+        {
+            "matches": [
+                "<all_urls>"
+            ],
+            "js": [
+                "content.js"
+            ]
+        }
+    ],
+    "action": {
+        "default_popup": "popup.html",
+        "default_icon": "/assets/icon.png"
+    }
+}

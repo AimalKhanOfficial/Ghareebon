@@ -1,0 +1,1 @@
+This is a Prank Chrome Extension to Mimick Shahid Anwar's GHAREEBON dialogue.

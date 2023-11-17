@@ -1,23 +1,25 @@
-// background.js
+/**
+ * Plays audio files from extension service workers
+ * @param {string} source - path of the audio file
+ * @param {number} volume - volume of the playback
+ */
+async function playSound(source = '/assets/ghareebon.mp3', volume = 1) {
+    await createOffscreen();
+    await chrome.runtime.sendMessage({ play: { source, volume } });
+}
 
-// Create an audio element in the background script
-const audio = new Audio();
-audio.src = chrome.runtime.getURL('assets/ghareebon.mp3'); // Adjust the audio path accordingly
-
-// Function to play the audio
-function playAudio() {
-  audio.play()
-    .then(() => {
-      console.log('Audio playback started!');
-    })
-    .catch(error => {
-      console.error('Error playing audio:', error);
+// Create the offscreen document if it doesn't already exist
+async function createOffscreen() {
+    if (await chrome.offscreen.hasDocument()) return;
+    await chrome.offscreen.createDocument({
+        url: 'offscreen.html',
+        reasons: ['AUDIO_PLAYBACK'],
+        justification: 'testing' // details for using the API
     });
 }
 
-// Listen for messages from the content script
 chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
-  if (message.action === 'playAudio') {
-    playAudio();
-  }
+    if (message.action === 'playAudio') {
+        playSound();
+    }
 });

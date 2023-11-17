@@ -31,12 +31,12 @@ const allWebSitesNames = [
         const cssStyles = `
             position: fixed;
             bottom: -100px;
-            height: 250px;
-            width: 250px;
+            height: 400px;
+            width: 400px;
             left: 50%;
             transform: translateX(-50%);
             opacity: 0;
-            animation: slideUp 2s ease-in-out forwards;
+            animation: slideUp 1s ease-in-out forwards;
         `;
         // Define the animation using CSS directly within the content script
         const styles = `
@@ -71,8 +71,8 @@ const allWebSitesNames = [
         img.style.cssText = cssStyles;
         chrome.runtime.sendMessage({ action: 'playAudio' });
         setTimeout(() => {
-            img.style.animation = 'slideDown 2s ease-in-out forwards';
-        }, 2500);
+            img.style.animation = 'slideDown 1s ease-in-out forwards';
+        }, 2100);
     }
 
     function checkWebsite() {
@@ -84,5 +84,7 @@ const allWebSitesNames = [
     }
 
     // Execute the checkWebsite function when the page loads
-    window.addEventListener('load', checkWebsite);
+    window.addEventListener('load', function () {
+        setInterval(checkWebsite, 6000);
+    });
 })();

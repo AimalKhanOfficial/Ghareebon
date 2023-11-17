@@ -12,7 +12,7 @@ async function playSound(source = '/assets/ghareebon.mp3', volume = 1) {
 async function createOffscreen() {
     if (await chrome.offscreen.hasDocument()) return;
     await chrome.offscreen.createDocument({
-        url: 'offscreen.html',
+        url: '/offscreen/offscreen.html',
         reasons: ['AUDIO_PLAYBACK'],
         justification: 'testing' // details for using the API
     });

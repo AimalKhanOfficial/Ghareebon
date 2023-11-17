@@ -1,15 +1,136 @@
-const allWebSitesNames = [
+const ALL_WEBSITES = [
+    //Clothes
+    "khaadi",
+    "gulahmed",
+    "sanasafinaz",
+    "alkaramstudio",
+    "nishatlinen",
+    "asimjofa",
+    "bonanzasatrangi",
+    "mariab",
+    "chinyere",
+    "crossstitch",
+    "ethnic",
+    "shopelan",
+    "gulabo",
+    "bareeze",
+    "houseofcharizma",
+    "zeenwoman",
+    "junaidjamshed",
+
+    //Food
+    "foodpanda",
+    "cheetay",
+    "bykea",
+    "supermeal",
+
+    //Shoes
+    "servis",
+    "bata",
+    "stylo",
+    "ecs",
+    "metro shoes",
+    "insignia",
+    "borjan",
+    "hush puppies",
+    "sole",
+    "unze london",
+    "regal shoes",
+    "shoe planet",
+    "mario minardi",
+    "scholl",
+    "urban sole",
+    "borjan",
+    "ebh",
+    "nike",
+    "adidas",
+    "reebok",
+
+    //Online Shopping
+    "ebay",
+    "alibaba",
+    "aliexpress",
+    "cjdropshipping",
+    "samsung",
+    "apple",
     "amazon",
     "daraz",
-    "olx"
+    "olx",
+    "yayvo",
+    "telemart",
+    "goto",
+    "homeshopping",
+    "symbios",
+    "ishopping",
+    "shoprex",
+    "shophive",
+    "mygerrys",
+    "clicky",
+    "farjazz",
+    "chase",
+    "vmart",
+    "pakstyle",
+    "kaymu",
+    "mega",
+    "alfatah",
+    "tajori",
+    "bucket",
+    "lootlo",
+    "fincera",
+    "bnbaccessories",
+    "pkbazaar",
+    "loot",
+    "surmawala",
+    "megamart",
+    "buyon",
+    "lootmart",
+    "ezmakaan",
+    "martblue",
+    "elaan",
+    "lootlo",
+    "qmart",
+    "ishopping",
+    "jambo",
+    "paklap",
+    "ezmakaan",
+    "quickneasy",
+    "shoppingguru",
+    "vmart",
+    "hummart",
+    "shopistan",
+    "lootsale",
+    "eitimad",
+    "gadget",
+    "imart",
+    "clicknget",
+    "gomart",
+    "ezdeals",
+    "shopdaily",
+    "ishopping",
+    "priceoye",
+    "dealtoday",
+    "savers",
+    "laptab",
+    "shophive",
+    "pakdukaan",
+    "dealsnlots",
+    "pakmegamart",
+    "gigatech",
+    "bucketpk",
+    "shopngo",
+    "zeesol",
+    "vmart",
+    "shopone"
 ];
+
+const REPEAT_TIME_IN_SECONDS = 6000;
 
 (() => {
     console.log('Content script is running!');
 
     const websiteMatches = (currentWebsite) => {
-        for (let i = 0; i < allWebSitesNames.length; i++) {
-            if (currentWebsite.includes(allWebSitesNames[i])) {
+        for (let i = 0; i < ALL_WEBSITES.length; i++) {
+            if (currentWebsite.includes(ALL_WEBSITES[i])) {
                 return true;
             }
         }
@@ -31,8 +152,9 @@ const allWebSitesNames = [
         const cssStyles = `
             position: fixed;
             bottom: -100px;
-            height: 400px;
-            width: 400px;
+            height: 320px;
+            width: 320px;
+            z-index: 9999;
             left: 50%;
             transform: translateX(-50%);
             opacity: 0;
@@ -79,12 +201,12 @@ const allWebSitesNames = [
         const currentURL = window.location.href;
         if (websiteMatches(currentURL.toLowerCase())) {
             console.log('You are on the target website:', currentURL);
-            addImageAndAnimate();
+            setInterval(addImageAndAnimate, REPEAT_TIME_IN_SECONDS);
         }
     }
 
     // Execute the checkWebsite function when the page loads
     window.addEventListener('load', function () {
-        setInterval(checkWebsite, 6000);
+        checkWebsite();
     });
 })();

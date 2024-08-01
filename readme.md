@@ -1,6 +1,6 @@
 # Extension Name: GHAREEBON
 
-# Published - https://chromewebstore.google.com/detail/ghareebon/cnhnecgdohncediimomchbadkbecbgfl
+## Published - https://chromewebstore.google.com/detail/ghareebon/cnhnecgdohncediimomchbadkbecbgfl
 
 ### Description:
 GHAREEBON is a lighthearted prank extension designed for a touch of humor in your browsing experience. Have a good laugh as the head of Shahid Anwar pops up unexpectedly every 10 seconds, cheerfully exclaiming "GHAREEBONN"! It's a playful way to add some fun to your browsing sessions and surprise your friends.
